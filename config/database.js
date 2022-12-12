@@ -55,7 +55,8 @@
 //     },
 //   };
 // };
-module.exports = ({ env }) => ({
+module.exports = ({ env }) => (
+  {
   connection: {
     client: 'mysql',
     connection: {
@@ -64,9 +65,7 @@ module.exports = ({ env }) => ({
       database: env('DATABASE_NAME', 'strapi'),
       user: env('DATABASE_USERNAME', 'root'),
       password: env('DATABASE_PASSWORD', 'root'),
-      ssl: {
-        rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false), // For self-signed certificates
-      },
+      ssl: false,
     },
     debug: false,
   },
